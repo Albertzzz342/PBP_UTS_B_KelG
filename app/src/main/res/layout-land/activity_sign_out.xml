@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="mhs"
+            type="com.example.tubes_pbp2.Mahasiswa" />
+        <variable
+            name="activity"
+            type="com.example.tubes_pbp2.SignOut" />
+    </data>
+
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            tools:context=".SignOut">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signOutBtn"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Sign Out"
+                android:layout_marginRight="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/profileBtn"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="@id/signOutBtn"
+                app:layout_constraintTop_toBottomOf="@+id/signOutBtn"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/halo"
+                android:text="Halo"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/show_email"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@{mhs.email}"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@+id/halo"
+                app:layout_constraintTop_toBottomOf="@+id/halo"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/pilih_paket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pilih Paket Kos"
+                android:textSize="35dp"
+                android:layout_marginTop="50dp"
+                app:layout_constraintTop_toBottomOf="@+id/show_email"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_dropdown_jenis"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:layout_constraintTop_toBottomOf="@+id/pilih_paket"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_jenis"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Jenis Kos"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_dropdown_kamarMandi"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:layout_constraintTop_toBottomOf="@+id/layout_dropdown_jenis"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_kamarMandi"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Kamar Mandi"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_dropdown_lamaSewa"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:layout_constraintTop_toBottomOf="@+id/layout_dropdown_kamarMandi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_lamaSewa"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Lama Sewa"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/pilihPaketBtn"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Pilih"
+                app:layout_constraintTop_toBottomOf="@+id/layout_dropdown_lamaSewa"
+                app:layout_constraintStart_toStartOf="@+id/layout_dropdown_lamaSewa"
+                app:layout_constraintEnd_toEndOf="@+id/layout_dropdown_lamaSewa" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="490dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="20dp"
+                android:tint="@android:color/white"
+                app:backgroundTint="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:srcCompat="@drawable/ic_baseline_map_24" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
